@@ -11,13 +11,18 @@ Lightweight, modern JavaScript library that enhances `<select>` elements with a 
 - Cleans up dynamically removed `<select>`s to prevent memory leaks.
 - Compact footprint: ~0.5KB minified CSS, ~0.015MB static memory.
 
+
 ## Installation
+Add the `ios-picker.min.js` file to your project directly from [a CDN](https://cdn.jsdelivr.net/gh/DinomNet/Simple-iOS-Picker.js@main/dist/ios-picker.min.js):
+```html
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/DinomNet/Simple-iOS-Picker.js@main/dist/ios-picker.min.js"></script>
+```
 
-Add the `ios-picker.min.js` file to your project directly from a CDN:
-`<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/DinomNet/Simple-iOS-Picker.js@main/dist/ios-picker.min.js"></script>`
+or download the [ios-picker.min.js](https://cdn.jsdelivr.net/gh/DinomNet/Simple-iOS-Picker.js@main/dist/ios-picker.min.js) file and include it directly:
+```html
+<script src="path/to/ios-picker.min.js"></script>
+```
 
-or download the `ios-picker.min.js` file and include it directly:
-`<script src="path/to/ios-picker.min.js"></script>`
 
 ## Usage
 Add the `picker` class to any `<select>` element:
@@ -31,8 +36,8 @@ Add the `picker` class to any `<select>` element:
 
 The library captures clicks, blocks the default browser dropdown, and displays an iOS-style picker. Selections update the `<select>` value, trigger `change` events, and work with forms.
 
-### Dynamic `<select>`s
-Create `<select>` elements programmatically:
+### Dynamically created `<select>` elements
+When you create `<select>` elements programmatically:
 
 ```javascript
 const select=document.createElement('select');
@@ -41,7 +46,7 @@ select.innerHTML='<option value="1">New Option</option>';
 document.body.appendChild(select);
 ```
 
-The library detects and initializes them automatically.
+The library detects and initializes them automatically. As long as the elements have a class `picker` they will have the iOS picker attached to them.
 
 
 ### Light/Dark Mode
