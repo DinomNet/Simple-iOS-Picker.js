@@ -126,6 +126,18 @@
 			e.preventDefault();
 		});
 
+		// Handle label clicks
+			const labels=document.querySelectorAll('label[for="'+select.id+'"]');
+			const labelClickHandler=(e)=>{
+				e.preventDefault();
+				showPicker(select);
+			};
+			labels.forEach(label=>{
+				label.addEventListener('click', labelClickHandler);
+			});
+	
+
+
 		// Observe select changes
 		const observer=new MutationObserver(()=>{
 			if(activeSelect===select&&activeOverlay){
@@ -146,6 +158,9 @@
 		// Cleanup
 		const cleanupObserver=new MutationObserver((mutations,obs)=>{
 			if(!document.contains(select)){
+				labels.forEach(label=>{
+					label.removeEventListener('click', labelClickHandler);
+				});
 				observer.disconnect();
 				obs.disconnect();
 			}
